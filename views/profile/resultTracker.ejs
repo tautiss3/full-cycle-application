@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/andrej.style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+   
+    <div class="main-container">
+        <div class="header">
+            <h1>Result Tracker</h1>
+        </div>
+        <div class="user">
+            <div class="profile-photo"></div>
+            <h2><%= user.nickname %></h2>
+        </div>
+        <div class="bodyweight">
+            <h3>Bodyweight</h3>
+            <form class="bodyWeightForm hiddenForm" action="/addWeight" method="POST">
+                <input name="weightDay" type="date" id="weightDayInput">
+                <input name="bodyWeigh" type="number" id="bodyWeighInput" placeholder="Bodyweight">
+                <button class="addWeight" type="button">Save</button>
+            </form>
+            <button  type="submit" onclick="openWeightForm()">Add</button>
+        </div>
+        <table id="weightTable">
+            <tr>
+                <th>Date</th>
+                <th>Weight</th>
+            </tr>
+            <% for(let i = 0; i < userResult.length; ++i ) { %>
+                <tr>
+                    <td class="date"> <%- new Date(userResult[i].weightDay).toISOString().split('T')[0] %> </td>
+                    <td><%= userResult[i].bodyWeight %>kg</td>
+                </tr>
+            <% } %> 
+        </table>
+        <div class="measurments">
+            <div class="measurments-header">
+                <h3>Measurments</h3>
+                    <form class="measurmentsForm hiddenForm" action="/centimetrsResult" method="POST">
+                    <div class="measurments-header-inputs">
+                        <select name="bodyPlace" id="bodyPlace">
+                            <option value="Waist">Waist</option>
+                            <option value="Biceps Left">Left Biceps</option>
+                            <option value="Biceps Right">Right Biceps</option>
+                        </select>
+                        <input type="date" name="measurmentsDay" id="measurmentsDay">
+                        <input type="number" name="centimetrs" id="centimetrs" placeholder="cm">
+                        <button class="addMeasurments" type="button">Save</button>
+                    </div>
+                </form>
+                <button type="submit" onclick="openMeasForm()" >Add</button>
+                </div>
+                <table class="measurmentsTable">
+                    <tr> 
+                        <th>Body Place</th>             
+                        <th>Date</th>
+                        <th>Centimetrs</th>
+                    </tr>
+                <% for(let i = 0; i < userMeasurments.length; ++i ) { %>    
+                    <tr>
+                        <td><%= userMeasurments[i].bodyPlace %></td>
+                        <td> <%- new Date(userMeasurments[i].measurmentsDay).toISOString().split('T')[0] %></td>
+                        <td><%= userMeasurments[i].centimetrs %>cm</td>
+                        
+                    </tr>
+                <% } %>    
+                
+                </table>
+                
+
+            
+        </div>
+
+    </div>
+    <script src="/javascripts/result_tracker.js"></script>
+</body>
+</html>

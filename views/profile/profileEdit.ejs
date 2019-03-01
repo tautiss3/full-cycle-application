@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/stylesheets/andrej.style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <h1>Edit Profile Page</h1>
+        </div>
+        <h2>Hello <%= user.username %></h2>
+        <p><a href="/newPassword"> Change password</a></p>
+        <form name="profileFormEdit" class="profile-form" action="/profileEdit" method="post" enctype="multipart/form-data" onsubmit="return validateForm()" >
+            <div class="left-form">
+                
+                <label for="nickName">Your Full Name:</label><br>
+                <input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" type="text" name="nickname" value="<%= editProfile.nickname %>" id="nickName" placeholder="Full name"  ><br>
+
+                <label for="dateOfBirth">Date of Birth:</label><br>
+                <input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" type="number" name="year" value="<%= editProfile.year %>" id="years" min="1919" max="2012" placeholder="1920"><input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" id="month" type="number" name="month" value="<%= editProfile.month %>" min="1" max="12" placeholder="07"><input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" id="day" type="number" name="day" value="<%= editProfile.day %>" min="1" max="31" placeholder="19"> <br>
+
+                <label for="gender">Gender:</label><br>
+                <input type="radio" required id="gender" name="gender" value="male" placeholder="male"> <span>Male</span>
+                <input type="radio" id="gender" name="gender" value="female"> <span>Female</span>
+                <input type="radio" id="gender" name="gender" value="other"> <span>Other</span> <br>  
+
+                <div class="height-weight">
+                    <div class="height">
+                <label for="height">Yours Height:</label><br>
+                <input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" type="number" min="100"  name="height" value="<%= editProfile.height %>" id="height" placeholder="Height in cm">
+                     </div>
+                     <div class="weight">
+                <label for="weight">Yours Weight:</label><br>
+                <input onfocus="inputFocus(this)" onfocusout="inputFocusOut(this)" type="number" min="30" name="weight" value="<%= editProfile.weight %>" id="weight" placeholder="Weight in kg">
+                    </div>
+                </div>    
+                
+                <label for="photo">Yours Photo:</label><br>
+                <input type="file" required name="photo" value="<%= editProfile.photo %>" id="photo"><br>
+                <button type="submit" class="button">Save</button>
+                <input type="checkbox" name="agree" id="check" required value="check"><span>I agree to the Terms of Use</span>
+                <span class="alert">Not all mandatory fields marked.</span>
+                
+             </div>
+             <div class="right-form">
+                <div class="right-top">
+                    <div class="goals">
+                        <label for="goal">What's Yours Goal?</label><br>
+                        <span class="goal-inputs">
+                        <input type="radio" name="goal" id="goal" value="Lose Weight"><span>Lose Weight</span><br>
+                        <input type="radio" name="goal" id="goal" value="Get Fit"><span>Get Fit</span><br>
+                        <input type="radio" name="goal" id="goal" value="Get Strong"><span>Get Strong</span><br>
+                        <input type="radio" name="goal" id="goal" value="Gain Weight"><span>Gain Weight</span>
+                    </span>
+                    </div>
+                    <div class="prBodyArea">
+                        <label for="prblArea">Yours Problem Area:</label><br>
+                        <span class="body-inputs">
+                        <input type="radio" name="problemArea" id="prblArea" value="Back"><span>Back</span><br>
+                        <input type="radio" name="problemArea" id="prblArea" value="Arms"><span>Arms</span><br>
+                        <input type="radio" name="problemArea" id="prblArea" value="Abs"><span>Abs</span><br>
+                        <input type="radio" name="problemArea" id="prblArea" value="Legs"><span>Legs</span><br>
+                    </span>
+                    </div>
+                 </div>
+                 <div class="right-middle">
+                     <div class="alcohol">
+                        <label for="">Do You Drink Alcohol?</label><br>
+                        <input type="radio" name="alcohol" id="alcohol" value="Yes"><span>Yes</span><br>
+                        <input type="radio" name="alcohol" id="alcohol" value="A Bit"><span>A Bit</span><br>
+                        <input type="radio" name="alcohol" id="alcohol" value="No"><span>No</span><br>
+                     </div>
+                     <div class="smoke">
+                            <label for="">Do You Smoke?</label><br>
+                            <input type="radio" name="smoke" id="smoke" value="Yes"><span>Yes</span><br>
+                            <input type="radio" name="smoke" id="smone" value="No"><span>No</span><br>
+                     </div>
+                    </div>
+                     <div class="right-bottom">
+                            <div class="traumas">
+                                <label for="traumas">Traumas:</label>
+                                <textarea name="traumas" value="<%= editProfile.traumas %>" id="traumas" cols="43" rows="4" placeholder="Write yours traumas:"></textarea>
+                            </div>
+                     </div>
+                 
+             </div>
+        </form>
+    </div>
+
+
+    <script src="/javascripts/profile_js.js"></script>
+</body>
+</html>

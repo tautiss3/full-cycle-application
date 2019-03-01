@@ -1,0 +1,400 @@
+.main-container{
+    background-color: white;
+}
+/* .main-container a {
+    text-decoration: none;
+    color: black;
+}
+.main-container a:hover {
+    text-decoration: underline;
+} */
+/* .main-container p {
+    margin-bottom: 18px;
+    margin-top: -18px;
+    padding-left: 10px;
+    font-size: 11px;
+} */
+.navbar{
+    background-color: rgb(206, 206, 206);
+}
+#linkas{
+    color: rgb(52, 170, 224);
+}
+#linkas:hover{
+    color: white;
+}
+.dropdown-item{
+    background-color: black;
+}
+.header {
+    background-color: #2ebcfe;
+    opacity: 0.9;
+}
+.header h1{
+    padding: 10px 0 10px 30px;
+    font-size: 38px;
+    color: white;
+    opacity: 0.9;
+}
+.main-container h2 {
+    padding-left: 10px;
+    opacity: 0.9;
+}
+.profile-form {
+    display: flex;
+    padding: 10px;
+}
+.left-form{
+    width: 54%;
+    border-right: 1px solid grey;
+    position: relative;
+}
+.left-form label, .newPass label{
+    color: grey;
+    font-size: 16px;
+}
+.left-form #nickName {
+    width: 90%;
+}
+.left-form #nickName, #years, #month, #day, #gender, #height, #weight, .newPass input{
+    padding: 5px 10px;
+    font-size: 18px;
+    margin: 7px 0 12px 0;
+}
+.left-form > #years{
+    width: 29%;
+}
+.left-form > #month{
+    width: 15%;
+    margin: 8px 40.5px;
+}
+.left-form > #day{
+    width: 23%;
+}
+.left-form span {
+    margin: 8px 20px;
+    font-size: 18px;
+    color: grey;
+}
+.left-form .height-weight{
+    display: flex;
+}
+.left-form .weight{
+    margin-left: 3.44%;
+}
+.left-form #height, #weight {
+    width: 80%;
+}
+.left-form #photo{
+    padding: 5px 0;
+    font-size: 18px;
+    margin: 7px 0 12px 0;
+    color: grey;
+}
+.left-form #check{
+    margin: 7px 10px 12px 7%;
+    width: 15px;    
+    height: 15px;
+}
+.left-form .button {
+    padding: 2% 11%;
+    font-size: 24px;   
+    margin: 7px 0 12px 0;
+    background-color: #2ebcfe;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 0.9;
+    border: none;
+    cursor: pointer;
+}
+.left-form #nickName:focus, #years:focus, #month:focus, #day:focus, #height:focus, #weight:focus, .pass-inputs input:focus {
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid  rgba(46, 188, 254, 0.9); 
+}
+
+.right-form{
+    width: 45%;
+    padding: 0 10px;
+}
+.right-top, .right-middle{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+}
+.right-top .goals, .right-top .prBodyArea, .right-middle .alcohol, .right-middle .smoke{
+    width: 40%;
+    border: 2px solid rgba(46, 188, 254, 0.9);
+    border-radius: 15px;
+    padding: 10px;
+    opacity: 0.9;
+    color: grey;
+}
+
+.right-bottom {
+    width: 95%;
+    border: 2px solid rgba(46, 188, 254, 0.9);
+    border-radius: 15px;
+    padding: 10px;
+    opacity: 0.9;
+    color: grey;
+}
+.right-bottom textarea{
+    resize: none;
+    border: 1px solid  rgba(255, 255, 255, 0.9);
+}
+.right-bottom textarea:focus{
+    border-bottom: 1px solid  rgba(46, 188, 254, 0.9); 
+}
+span.alert {
+    margin: 0;
+    color: red;
+    font-size: 12px;
+    display: none;
+    position: absolute;
+    bottom: 70px;
+}
+/* page Profile-End styles  */
+ .main-container-2 {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    opacity: 0.9;
+}
+.main-container-2 > h2 {
+    padding-left: 10px;
+}
+.main-container-2 > h3 {
+    margin-left: 10px;
+    border-bottom: 1px solid grey;
+    width: 40%;
+    padding-left: 5%;
+    color: grey;
+}
+.check-main-info, .cheak-other-info{
+    padding: 10px;
+    display: flex;
+}
+.photo{
+    width: 40%;
+
+    display: flex;
+    justify-content: center;
+}
+.photo-bg{
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+.main-info{
+    font-size: 18px;
+    color: grey;
+    font-weight: bold;
+    padding-left: 45px;
+}
+.main-info h3{
+    color: #000000;  
+}
+.oi-people{
+    color: #000000;
+    font-size: 27px;
+}
+
+.oi-calendar{
+    color: #000000;
+    font-size: 25px;
+}
+
+.cheak-other-info{
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.cheak-other-info p {
+    margin-top: 0;
+    font-size: 17px;
+    color: #000000;
+    width: 24%;
+}
+
+.cheak-other-info p span{
+    font-weight: bold;
+}
+.check-buttons {
+    display: flex;
+    justify-content: center;
+}
+.check-buttons button  {
+    padding: 1.5% 9%;
+    font-size: 20px;
+    margin-bottom: 12px;
+    background-color: #03DAC5;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 0.9;
+    border: none;
+    cursor: pointer;
+}
+
+.check-buttons button:nth-child(1){
+    margin-right: 3%;
+}
+.check-buttons button:nth-child(2){
+    margin-left: 3%;
+}
+/* Page change password styles */
+.main-container-3{
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: white;
+    opacity: 0.9;
+}
+.main-container-3 h2 {
+    padding-left: 10px;
+}
+.newPass{
+    padding: 10px;
+    display: flex;
+}
+.newPass .pass-labels{
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.newPass .pass-inputs {
+    width: 49%;
+}
+.pass-button {
+    text-align: center;
+}
+.pass-button button {
+    padding: 1.5% 9%;
+    font-size: 20px;
+    margin-bottom: 12px;
+    background-color: #03DAC5;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 0.9;
+    border: none;
+    cursor: pointer;
+}  */
+/* Page result tracker styles  */
+.user {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.user .profile-photo{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+.user h2 {
+    margin: 0;
+    padding-left: 0;
+}
+.bodyweight {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.bodyweight h3, .measurments  h3 {
+    font-size: 22px;
+    padding-left: 5%;
+    color: grey;
+} 
+.bodyWeightForm {
+    text-align: right;
+    padding-left: 10%;
+}
+.bodyWeightForm input {
+    padding: 5px 10px;
+    font-size: 18px;
+    color: grey;
+}
+.bodyWeightForm input{
+    width: 31.2%;
+}
+.hiddenForm {
+    display: none;
+}
+.bodyweight button, .measurments  button {
+    padding: 5px 10px;
+    background-color: #2ebcfe;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: bold;
+    border-radius: 10px;
+    opacity: 0.9;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+}
+.main-container > table {
+    width: 100%;
+}
+.main-container > table tr:nth-child(1) {
+    background-color: grey;
+    
+}
+.main-container  table tr th{
+    font-size: 26px;
+    padding: 5px 0px;
+ 
+}
+.main-container  table tr td {
+    padding: 5px 0px 5px 5%;
+    font-size: 18px;
+    background-color: #d6d3d399;
+    width: 50%;
+}
+.main-container .measurmentsTable tr td {
+    width: 33%;
+}
+.measurments {
+    margin-top: 2%;
+    padding-bottom: 4%;
+}
+.measurments-header {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid grey;
+}
+.measurments-header-inputs {
+    text-align: right;
+    padding-right: 5%;
+}
+.measurments-header-inputs select {
+    width: 25%;
+}
+.measurments-header-inputs input, select {
+    padding: 5px 10px;
+    font-size: 18px;
+    color: grey;
+}
+.measurments-header-inputs input{
+    width: 25%;
+}
+.measurments  table{
+    width: 100%;
+}
+.measurments  table tr:nth-child(1){
+    background-color: grey;
+}
+.measurments  table tr th{
+    font-size: 26px;
+    padding: 5px 0px;
+}
+.measurments  table tr td {
+    padding: 5px 0px 5px 5%;
+    font-size: 18px;
+    background-color: #d6d3d399;
+} 

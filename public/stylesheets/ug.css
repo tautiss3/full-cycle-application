@@ -1,0 +1,66 @@
+body{
+    margin: 0 auto;
+    color: #000000;
+    background-color: #e9ecef;
+}
+
+.navbar{
+    height: 100px;
+}
+
+.btn-group h6{
+    color: #ffffff;
+    margin-top: 33px;
+    transition: all 1s ease-in-out
+}
+
+.btn-group h6:hover{
+    color: #03DAC5;
+}
+
+.btn-group a{
+   color: #000000;
+}
+
+.btn-group a:hover{
+    color: #03DAC5;
+ }
+
+
+.nav a{
+    color: #ffffff;
+    transition: all 1s ease-in-out;
+}
+
+.nav  a:hover{
+    color: #03DAC5;
+}
+
+.navi{
+    width: 15%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main {
+    height: 700px;
+    background-image: url("./main.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main .jumbotron{
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+}
+
+.jumbotron .btn{ 
+   float: left;
+   left: -15px;
+   color: #03DAC5;
+}
+
+.mainas {
+    height: 1000px;
+}

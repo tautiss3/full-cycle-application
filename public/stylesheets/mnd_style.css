@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100vh;
+}
+#navbaras{
+  color: white;
+}
+.nav-link{
+  background-color: rgb(212, 211, 211);
+}
+.nav-item{
+  background-color: rgb(185, 184, 184);
+}
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+.modal-dialog .modal-content .modal-body form#exerciseCreateForm input[type="text"] {
+  line-height: 1.7;
+}
+
+.modal-dialog .modal-content .modal-body form#exerciseCreateForm fieldset[class*="col"] > label[class*="bmd-label"] {
+  left: 15px !important;
+  /*Bug: doesn't line up with default 15px column padding*/
+}
+
+.table-container table td {
+  cursor: pointer;
+}
+
+.table-container button.create {
+  margin-top: -36px;
+}
+
+.exerciseContainer {
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.exerciseContainer table {
+  margin-bottom: 0;
+}
+
+span.trash {
+  cursor: pointer;
+}
+
+span.trash:hover {
+  -webkit-animation: shake .3s infinite;
+          animation: shake .3s infinite;
+}
+
+@-webkit-keyframes shake {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+
+@keyframes shake {
+  0% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+  50% {
+    -webkit-transform: rotate(10deg);
+            transform: rotate(10deg);
+  }
+  100% {
+    -webkit-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+  }
+}
+/*# sourceMappingURL=mnd_style.css.map */

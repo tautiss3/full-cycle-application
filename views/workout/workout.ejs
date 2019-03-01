@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Workouts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-material-design.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/icons/css/open-iconic-bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/mnd_style.css" />
+</head>
+
+<body>
+  <ul class="nav nav-tabs bg-secondary">
+    <li class="nav-item">
+      <a class="nav-link active" href="/exercises">Exercises</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/exercises/muscles">Muscles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/exercises/categories">Categories</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/exercises/equipments">Equipment</a>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="table-container">
+      <table class="table table-hover table-light">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Exercises</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <% if(Object.keys(workoutList).length){ %>
+          <% for(let i = 0; i <
+            workoutList.length; ++i){ %>
+          <tr data-toggle="modal" data-target="#edit" data-id="<%= workoutList[i]._id %>">
+            <td scope="row">
+              <%= i+1 %>
+            </td>
+            <td>
+              <%= workoutList[i].name %>
+            </td>
+            <td>
+              <%= workoutList[i].exercises.length %>
+            </td>
+
+            <td>
+              <span class="oi oi-delete" onclick="deleteRow(this)" data-toggle="tooltip"
+              data-placement="right" title="Delete Workout"></span>
+            </td>
+          </tr>
+          <% } %>
+          <% } %>
+        </tbody>
+      </table>
+      <button type="button" class="create btn btn-primary bmd-btn-fab float-right" data-toggle="modal" data-target="#create">
+        <span class="oi oi-plus"></span>
+      </button>
+    </div>
+
+    <!-- Modal Create -->
+    <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add workout</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="/exercises" method="post" id="createForm" class="container">
+              <div class="row">
+                <fieldset class="form-group bmd-form-group input-group-lg col">
+                  <label for="name" class="bmd-label-floating">Workout Name</label>
+                  <input type="text" class="form-control" name="name" />
+                  <span class="bmd-help">example: Chest Day I</span>
+                </fieldset>
+              </div>
+            </form>
+            <button type="button" class="add btn btn-primary bmd-btn-fab bmd-btn-fab-sm float-right" data-toggle="tooltip"
+              data-placement="top" title="Add Exercise">
+              <span class="oi oi-plus" style="font-size: 14px;"></span>
+            </button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+              Close
+            </button>
+            <button type="button" class="addNew btn btn-primary" data-dismiss="modal">
+              Add new
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Edit -->
+  <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit workout</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="/exercises" method="post" id="editForm" class="container">
+            
+          </form>
+          <button type="button" class="add btn btn-primary bmd-btn-fab bmd-btn-fab-sm float-right" data-toggle="tooltip"
+            data-placement="top" title="Add Exercise">
+            <span class="oi oi-plus" style="font-size: 14px;"></span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">
+            Close
+          </button>
+          <button type="button" class="edit btn btn-primary" data-dismiss="modal">
+            Save changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script src="/jquery.slim.min.js"></script>
+  <script src="/popper.min.js"></script>
+  <script src="/js/bootstrap-material-design.min.js"></script>
+  <script src="/javascripts/mnd_workout.js"></script>
+  <script>
+    let workoutArray = <%- JSON.stringify(workoutList) %>; //ignore that
+    $(document).ready(function () {
+      $("body").bootstrapMaterialDesign();
+    });
+  </script>
+</body>
+
+</html>

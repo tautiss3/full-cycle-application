@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/icons/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/mnd_style.css" />
+</head>
+<body>
+    <ul class="nav nav-tabs bg-secondary" id="navbaras">
+        <li class="nav-item">
+            <a class="nav-link" href="/workouts">Workouts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises">Exercises</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/muscles">Muscles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/categories">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/equipments">Equipment</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/users">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/calendar">Calendar</a>
+        </li>
+    </ul>
+        <h1>Vartotojų sąrašas</h1>
+
+        <% if(userList){ %>
+            <ul>
+                <% for(let i = 0; i < userList.length; ++i){ %>
+                <a href="/profile/<%= userList[i].nickname %>"><li><%= userList[i].nickname,  userList[i].el_pastas %></li></a>
+                <% } %>
+            </ul>
+        <% } %>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercises</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="/node_modules/bootstrap-material-design/dist/css/bootstrap-material-design.min.css" /> -->
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/icons/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/mnd_style.css" />
+</head>
+
+<body>
+    <ul class="nav nav-tabs bg-secondary">
+        <li class="nav-item">
+            <a class="nav-link" href="/workouts">Workouts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="/exercises">Exercises</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/muscles">Muscles</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/categories">Categories</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/exercises/equipments">Equipment</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="table-container">
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Muscle</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if(Object.keys(exerciseList).length){ %>
+
+                    <% for(let i = 0; i < exerciseList.length; ++i){ %>
+                    <tr data-id="<%= exerciseList[i]._id %>">
+                        <td scope="row">
+                            <%= i+1 %>
+                        </td>
+                        <td>
+                            <%= exerciseList[i].name %>
+                        </td>
+                        <td>
+                            <% if(exerciseList[i].muscle) {%>
+                            <%= exerciseList[i].muscle.name %>
+                            <% } %>
+                        </td>
+                        <td>
+                            <% if(exerciseList[i].description){ %>
+                            <%= exerciseList[i].description %>
+                            <% } %>
+                        </td>
+                        <td>
+                            <span class="oi oi-delete" onclick="clickDelete(this)" data-toggle="tooltip"
+                            data-placement="right" title="Delete Exercise"></span>
+                        </td>
+                    </tr>
+                    <% } %>
+                    <% } %>
+
+
+                </tbody>
+            </table>
+            <button type="button" class="create btn btn-primary bmd-btn-fab float-right" data-toggle="modal"
+                data-target="#create">
+                <span class="oi oi-plus"></span>
+            </button>
+        </div>
+
+
+
+        <!-- Modal Create -->
+        <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add exercise</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/exercises" method="post" id="createForm" class="container">
+                            <div class="row">
+
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="name" class="bmd-label-floating">Exercise Name</label>
+                                    <input type="text" class="form-control" name="name">
+                                    <span class="bmd-help">example: Bench Press</span>
+                                </fieldset>
+
+
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="muscle" class="bmd-label-floating">Muscles Group</label>
+                                    <select name="muscle" class="form-control">
+
+                                    </select>
+                                </fieldset>
+                            </div>
+
+                            <div class="row">
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="category" class="bmd-label-floating">Category</label>
+                                    <select name="category" class="form-control">
+
+                                    </select>
+                                </fieldset>
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="equipment" class="bmd-label-floating">Equipment</label>
+                                    <select name="equipment" class="form-control">
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div class="row">
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="description" class="bmd-label-floating">Example textarea</label>
+                                    <textarea class="form-control" name="description" rows="3"></textarea>
+                                </fieldset>
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="exampleInputFile" class="bmd-label-static" hidden>File input</label>
+                                    <input type="file" class="form-control-file" name="image">
+                                    <small class="text-muted">Add Image to Exercise.</small>
+                                </fieldset>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" form="createForm" class="btn btn-primary">Add new</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Edit -->
+        <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exerciseEditLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exerciseEditLabel">Edit exercise</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/workouts/edit" method="post" id="editForm" class="container">
+                            <div class="row">
+                                <input type="text" class="form-control" name="_id" hidden>
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="name" class="bmd-label-static">Exercise Name</label>
+                                    <input type="text" class="form-control" name="name">
+                                    <span class="bmd-help">example: Bench Press</span>
+                                </fieldset>
+
+
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="muscle" class="bmd-label-static">Muscles Group</label>
+                                    <select name="muscle" class="form-control">
+
+                                    </select>
+                                </fieldset>
+                            </div>
+
+                            <div class="row">
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="category" class="bmd-label-static">Category</label>
+                                    <select name="category" class="form-control">
+
+                                    </select>
+                                </fieldset>
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="equipment" class="bmd-label-static">Equipment</label>
+                                    <select name="equipment" class="form-control">
+
+                                    </select>
+                                </fieldset>
+                            </div>
+                            <div class="row">
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="description" class="bmd-label-static">Example textarea</label>
+                                    <textarea class="form-control" name="description" rows="3"></textarea>
+                                </fieldset>
+                                <fieldset class="form-group bmd-form-group col">
+                                    <label for="exampleInputFile" class="bmd-label-static" hidden>File input</label>
+                                    <input type="file" class="form-control-file" name="image">
+                                    <small class="text-muted">Add Image to Exercise.</small>
+                                </fieldset>
+
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" form="editForm" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Delete -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete">Large modal</button>
+        <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header alert-danger">
+                        <h5 class="modal-title" id="exampleModalLabel"><span class="oi oi-trash"></span>Delete Exercise</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-danger" onclick="deleteRow(this)">Delete</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/jquery.slim.min.js"></script>
+    <script src="/popper.min.js"></script>
+    <script src="/js/bootstrap-material-design.min.js"></script>
+    <script>
+        let exerciseArray = <%- JSON.stringify(exerciseList) %>; //ignore that
+        let deleteRow = () => {
+            $('#delete').modal('hide');
+            postAjax('/exercises/delete', {
+                _id: exercisesTR.parentNode.parentNode.dataset.id
+            }, function (data) {});
+            exercisesTR.parentNode.parentNode.remove();
+        }
+    </script>
+    <script src="/javascripts/mnd_exercise.js"></script>
+
+</body>
+
+</html>

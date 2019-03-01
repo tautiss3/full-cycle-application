@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/icons/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/andrej.style.css">
+</head>
+<body>
+        <%- include('../_partials/navbar') %>
+        <!-- <h1>Vardas : <%= user.nickname %></h1>    
+        <h1>Vartotojo ID : <%= user._id %></h1> -->
+        <div class="main-container-2">
+                <div class="header">
+                    <h1>Profile Info</h1>
+                </div>
+                <h2><%= user.username %></h2>
+                <h3>Main Info</h3>
+                <div class="check-main-info">   
+                    <div class="photo">
+                            <img class="photo-bg" src="<%= user.photo %> " alt="">
+                    </div>
+                    <div class="main-info">
+                        <span class="oi oi-people"></span><p><%= user.nickname %></p>
+                        <span class="oi oi-calendar"></span><p><%= user.year %> - <%= user.month %> - <%= user.day %></p>
+                        <p>Gender: <%= user.gender %> </p>
+                        <p>Height: <%= user.height %> cm / Weight: <%= user.weight %> kg</p>
+                    </div>
+                </div>
+                <h3>Other Info</h3>
+                <div class="cheak-other-info">
+                    <p> <span>Goal:</span><br>  <%= user.goal %></p>
+                    <p> <span>Problem Area:</span><br>  <%= user.problemArea %></p>
+                    <p> <span>Alcohol:</span><br> <%= user.alcohol %></p>
+                    <p> <span>Smoke:</span><br>  <%= user.smoke %></p>
+                    <p class="traumas"><span>Traumas:</span> <br> <%= user.traumas %></p>
+                </div>
+               
+            </div>
+     
+</body>
+</html>

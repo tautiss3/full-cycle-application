@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/bootstrap-material-design.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="/icons/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/andrej.style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="main-container-2">
+        <div class="header">
+            <h1>Check Your Profile Info</h1>
+        </div>
+        <h2><%= user.username %></h2>
+        <h3>Main Info</h3>
+        <div class="check-main-info">   
+            <div class="photo">
+                    <img class="photo-bg" src="<%= userProfile.photo %> " alt="">
+                <!-- <div class="photo-bg"></div> -->
+            </div>
+            <div class="main-info">
+                <span class="oi oi-people"></span><p><%= userProfile.nickname %></p>
+                <span class="oi oi-calendar"></span><p><%= userProfile.year %> - <%= userProfile.month %> - <%= userProfile.day %></p>
+                <p>Gender: <%= userProfile.gender %> </p>
+                <p>Height: <%= userProfile.height %> cm / Weight: <%= userProfile.weight %> kg</p>
+            </div>
+        </div>
+        <h3>Other Info</h3>
+        <div class="cheak-other-info">
+            <p> <span>Goal:</span><br>  <%= userProfile.goal %></p>
+            <p> <span>Problem Area:</span><br>  <%= userProfile.problemArea %></p>
+            <p> <span>Alcohol:</span><br> <%= userProfile.alcohol %></p>
+            <p> <span>Smoke:</span><br>  <%= userProfile.smoke %></p>
+            <p class="traumas"><span>Traumas:</span> <br> <%= userProfile.traumas %></p>
+        </div>
+        <div class="check-buttons">
+            <button onclick="location.href='/profile'">Save</button>
+            <button onclick="location.href='/profileEdit'">Edit</button>
+        </div>
+    </div>
+    
+    
+</body>
+</html>

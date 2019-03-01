@@ -1,0 +1,30 @@
+{
+  "name": "nextweek",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "bootstrap-material-design": "^4.1.1",
+    "cookie-parser": "~1.4.3",
+    "date-format-lite": "^17.7.0",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "express-session": "^1.15.6",
+    "http-errors": "^1.6.3",
+    "jquery": "^3.3.1",
+    "mongoose": "^5.4.4",
+    "morgan": "~1.9.0",
+    "multer": "^1.4.1",
+    "multer-sharp": "^0.5.2",
+    "passport": "^0.4.0",
+    "passport-local-mongoose": "^5.0.1",
+    "popper.js": "^1.14.6",
+    "sharp": "^0.21.3"
+  },
+  "author": "",
+  "license": "GPL V3",
+  "readmeFilename": "README.md"
+}
